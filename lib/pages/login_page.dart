@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/components/custom_container.dart';
 import 'package:food_delivery/components/my_textfield.dart';
 import 'package:food_delivery/pages/forgot_password.dart';
+import 'package:food_delivery/pages/homepage.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,6 +16,15 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+
+  void login() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const HomePage(),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -90,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   CustomContainer(
-                    onTap: () {},
+                    onTap: login,
                     text: 'Sign In',
                   ),
                   const SizedBox(
