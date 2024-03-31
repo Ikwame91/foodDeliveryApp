@@ -29,10 +29,6 @@ class _HomePageState extends State<HomePage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-          appBar: AppBar(
-            title: const Text("Home Page"),
-            centerTitle: true,
-          ),
           drawer: MyDrawer(
             onSettingsTap: onSettingsTap,
             onSignoutTap: onSignoutTap,
@@ -40,8 +36,16 @@ class _HomePageState extends State<HomePage> {
           body: NestedScrollView(
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               const MySliverAppbar(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Divider(
+                      indent: 25,
+                      endIndent: 25,
+                    )
+                  ],
+                ),
                 title: Text("data"),
-                child: Text("data"),
               ),
             ],
             body: Container(
