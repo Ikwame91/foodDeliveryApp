@@ -47,4 +47,35 @@ class Restaurant {
       ],
     ),
   ];
+
+  /*
+Getters
+
+  */
+
+  /*
+  Operations
+  */
+  //add to cart
+
+  //remove from cart
+
+  //get total price of cart
+
+  //get total number of items in cart
+
+  //clear cart
+
+  /*
+
+  HELPERS
+
+
+  */
+
+  //Gnerate a Receipt
+
+  //format double value into money
+
+  //format list of addons into a string summary
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/current_location.dart';
+import 'package:food_delivery/components/description_box.dart';
 import 'package:food_delivery/components/my_drawer.dart';
 import 'package:food_delivery/components/my_sliverappbar.dart';
 import 'package:food_delivery/components/my_tabbar.dart';
+import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/pages/settings_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +20,8 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    _tabController =
+        TabController(length: FoodCategory.values.length, vsync: this);
   }
 
   @override
@@ -41,6 +44,28 @@ class _HomePageState extends State<HomePage>
     Navigator.pop(context);
   }
 
+//sort out and return a list of food items that belong to a specific category
+  List<Food> _filterMenuByCategory(FoodCategory category, List<Food> fullmenu) {
+    return fullmenu.where((food) => food.category == category).toList();
+  }
+
+//retuurn lists of foods in a given category
+  List<Widget> getFoodInThisCategory(List<Food> fullmenu) {
+    return FoodCategory.values.map((category) {
+      List<Food> categorymenu = _filterMenuByCategory(category, fullmenu);
+      return ListView.builder(
+        itemCount: categorymenu.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(
+              categorymenu[index].name,
+            ),
+          );
+        },
+      );
+    }).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -51,43 +76,27 @@ class _HomePageState extends State<HomePage>
           onSignoutTap: onSignoutTap,
         ),
         body: NestedScrollView(
-          headerSliverBuilder: (context, innerBoxIsScrolled) => [
-            MySliverAppbar(
-              title: MyTabBar(tabController: _tabController),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Divider(
-                    indent: 25,
-                    endIndent: 25,
+            headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                  MySliverAppbar(
+                    title: MyTabBar(tabController: _tabController),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Divider(
+                          indent: 25,
+                          endIndent: 25,
+                        ),
+
+                        //current location
+                        CurrentLocation(),
+
+                        //descriptive bix
+                        DescriptionBox()
+                      ],
+                    ),
                   ),
-
-                  //current location
-                  CurrentLocation(),
-
-                  //descriptive bix
                 ],
-              ),
-            ),
-          ],
-          body: TabBarView(controller: _tabController, children: [
-            ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Text("FIRST TAB");
-                }),
-            ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Text("SECOND TAB");
-                }),
-            ListView.builder(
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Text("THIRD TAB");
-                })
-          ]),
-        ),
+            body: Consumer),
       ),
     );
   }
