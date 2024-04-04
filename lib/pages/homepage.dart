@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/current_location.dart';
 import 'package:food_delivery/components/description_box.dart';
+import 'package:food_delivery/components/food_tile.dart';
 import 'package:food_delivery/components/my_drawer.dart';
 import 'package:food_delivery/components/my_sliverappbar.dart';
 import 'package:food_delivery/components/my_tabbar.dart';
 import 'package:food_delivery/models/food.dart';
+import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/settings_page.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -55,11 +58,14 @@ class _HomePageState extends State<HomePage>
       List<Food> categorymenu = _filterMenuByCategory(category, fullmenu);
       return ListView.builder(
         itemCount: categorymenu.length,
+        physics: NeverScrollableScrollPhysics(),
+        padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(
-              categorymenu[index].name,
-            ),
+          //get individual food
+          final food = categorymenu[index];
+          return FoodTile(
+            food: food,
+            onTap: () {},
           );
         },
       );
@@ -96,7 +102,14 @@ class _HomePageState extends State<HomePage>
                     ),
                   ),
                 ],
-            body: Consumer),
+            body: Consumer<Restaurant>(
+              builder: (context, restaurant, child) {
+                return TabBarView(
+                  controller: _tabController,
+                  children: getFoodInThisCategory(restaurant.menu),
+                );
+              },
+            )),
       ),
     );
   }
