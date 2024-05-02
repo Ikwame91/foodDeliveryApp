@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food.dart';
 
 class MyTabBar extends StatelessWidget {
-  const MyTabBar({super.key, required this.tabController});
+  const MyTabBar({
+    super.key,
+    required this.tabController,
+  });
   final TabController tabController;
   List<Tab> _buildCategoryTabs() {
     return FoodCategory.values.map((category) {

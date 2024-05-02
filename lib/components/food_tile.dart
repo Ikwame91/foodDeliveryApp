@@ -25,19 +25,31 @@ class FoodTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(food.name),
-                      Text(food.price.toString()),
+                      Text("\$${food.price}"),
                       Text(food.description),
                     ],
                   ),
                 ),
+
+                const SizedBox(
+                  height: 20,
+                ),
                 //food image
-                Image.asset(
-                  food.imagePath,
-                  height: 12,
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    food.imagePath,
+                    height: 120,
+                  ),
                 ),
               ],
             ),
           ),
+        ),
+        Divider(
+          color: Theme.of(context).colorScheme.background,
+          endIndent: 24,
+          indent: 25,
         )
       ],
     );

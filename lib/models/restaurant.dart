@@ -7,7 +7,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classico CheeseBurgers",
       description:
           "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
-      imagePath: "lib/images/nurger.pmg",
+      imagePath: "assets/images/burger.png",
       price: 9.09,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -18,7 +18,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classico CheeseBurgers",
       description:
           "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
-      imagePath: "lib/images/nurger.pmg",
+      imagePath: "assets/images/kfc.png",
       price: 9.09,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -29,7 +29,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classico CheeseBurgers",
       description:
           "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
-      imagePath: "lib/images/nurger.pmg",
+      imagePath: "assets/images/burger.png",
       price: 9.09,
       category: FoodCategory.burgers,
       availableAddons: [
@@ -40,7 +40,7 @@ class Restaurant extends ChangeNotifier {
       name: "Classico CheeseBurgers",
       description:
           "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
-      imagePath: "lib/images/nurger.pmg",
+      imagePath: "assets/images/burger.png",
       price: 9.09,
       category: FoodCategory.burgers,
       availableAddons: [
