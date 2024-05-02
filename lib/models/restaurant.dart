@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/models/food.dart';
 
 class Restaurant extends ChangeNotifier {
-  final List<Food> menu = [
+  final List<Food> _menu = [
+    //burgers
     Food(
       name: "Classico CheeseBurgers",
       description:
@@ -47,12 +48,21 @@ class Restaurant extends ChangeNotifier {
         Addons(name: 'fried Wings', price: 568),
       ],
     ),
+
+    //salads
+
+    //sides
+
+    //deserts
+
+    //drinks
   ];
 
   /*
 Getters
-
+  
   */
+  List<Food> get menu => _menu;
 
   /*
   Operations
@@ -74,7 +84,7 @@ Getters
 
   */
 
-  //Gnerate a Receipt
+  //Generate a Receipt
 
   //format double value into money
 

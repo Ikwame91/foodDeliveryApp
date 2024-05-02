@@ -55,15 +55,13 @@ class _HomePageState extends State<HomePage>
 //retuurn lists of foods in a given category
   List<Widget> getFoodInThisCategory(List<Food> fullmenu) {
     return FoodCategory.values.map((category) {
-      
       //get category menu
       List<Food> categorymenu = _filterMenuByCategory(category, fullmenu);
       return ListView.builder(
         itemCount: categorymenu.length,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         padding: EdgeInsets.zero,
         itemBuilder: (context, index) {
-
           //get individual food
           final food = categorymenu[index];
           return FoodTile(
@@ -99,7 +97,7 @@ class _HomePageState extends State<HomePage>
                         //current location
                         CurrentLocation(),
 
-                        //descriptive bix
+                        //descriptive box
                         DescriptionBox()
                       ],
                     ),
