@@ -8,20 +8,16 @@ class MySliverAppbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       collapsedHeight: 340,
-      expandedHeight: 100,
+      expandedHeight: 120,
       floating: false,
       pinned: true,
       backgroundColor: Colors.grey,
       centerTitle: true,
-      title: Text(
-        'Appaaa',
-      ),
+      title: Text('Appaaa'),
       actions: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
-            Icons.shopping_cart,
-          ),
+          icon: Icon(Icons.shopping_cart),
         )
       ],
       flexibleSpace: FlexibleSpaceBar(
@@ -32,9 +28,9 @@ class MySliverAppbar extends StatelessWidget {
         title: title,
         centerTitle: true,
         titlePadding: const EdgeInsets.only(
-          left: 20,
-          right: 20,
-          bottom: 20,
+          left: 0,
+          right: 0,
+          bottom: 0,
         ),
         expandedTitleScale: 1,
       ),

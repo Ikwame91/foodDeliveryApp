@@ -227,7 +227,7 @@ class Restaurant with ChangeNotifier {
       name: "Espresso",
       description:
           "Intense and aromatic shot of espresso, perfect for a quick pick-me-up.",
-      imagePath: "assets/images/drink5.jpeg",
+      imagePath: "assets/images/drink1.jpeg",
       price: 2.99,
       category: FoodCategory.drinks,
       availableAddons: [],

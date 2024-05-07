@@ -6,18 +6,18 @@ class CurrentLocation extends StatelessWidget {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
-              title: Text("Your Location"),
-              content: TextField(
+              title: const Text("Your Location"),
+              content: const TextField(
                 decoration: InputDecoration(hintText: "Search address"),
               ),
               actions: [
                 MaterialButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("Cancel"),
+                  child: const Text("Cancel"),
                 ),
                 MaterialButton(
                   onPressed: () => Navigator.pop(context),
-                  child: Text("Save"),
+                  child: const Text("Save"),
                 )
               ],
             ));
@@ -26,7 +26,7 @@ class CurrentLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(25.0),
+      padding: const EdgeInsets.all(25.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -45,7 +45,7 @@ class CurrentLocation extends StatelessWidget {
                       color: Colors.grey[900]),
                 ),
                 //drop down menu
-                Icon(Icons.keyboard_arrow_down_rounded),
+                const Icon(Icons.keyboard_arrow_down_rounded),
               ],
             ),
           )

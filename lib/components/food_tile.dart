@@ -25,6 +25,9 @@ class FoodTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(food.name),
+                      const SizedBox(
+                        height: 5,
+                      ),
                       Text("\$${food.price}"),
                       Text(food.description),
                     ],
@@ -32,7 +35,7 @@ class FoodTile extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 20,
+                  width: 20,
                 ),
                 //food image
                 ClipRRect(
@@ -47,7 +50,7 @@ class FoodTile extends StatelessWidget {
           ),
         ),
         Divider(
-          color: Theme.of(context).colorScheme.background,
+          color: Theme.of(context).colorScheme.primary,
           endIndent: 24,
           indent: 25,
         )

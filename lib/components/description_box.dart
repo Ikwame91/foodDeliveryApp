@@ -16,7 +16,7 @@ class DescriptionBox extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.all(24),
-      margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+      margin: const EdgeInsets.only(left: 25, right: 20, bottom: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

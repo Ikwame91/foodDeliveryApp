@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomContainer extends StatelessWidget {
-  const CustomContainer({super.key, this.onTap, this.text});
+  const CustomContainer({
+    super.key,
+    this.onTap,
+    this.text,
+    this.color = Colors.orange,
+  });
   final void Function()? onTap;
   final String? text;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class CustomContainer extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
-              color: Colors.orange, borderRadius: BorderRadius.circular(12)),
+              color: color, borderRadius: BorderRadius.circular(12)),
           child: Center(
             child: Text(
               text!,

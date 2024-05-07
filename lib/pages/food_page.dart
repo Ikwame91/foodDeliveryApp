@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/custom_container.dart';
 import 'package:food_delivery/models/food.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FoodPage extends StatefulWidget {
   final Food food;
@@ -18,12 +19,17 @@ class _FoodPageState extends State<FoodPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Theme.of(context).colorScheme.secondary,
-        title: Text(widget.food.name),
+        title: Text(
+          widget.food.name,
+          style: GoogleFonts.leagueGothic(
+            fontSize: 40,
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             //food image
             Image.asset(widget.food.imagePath),
@@ -31,6 +37,7 @@ class _FoodPageState extends State<FoodPage> {
             Padding(
               padding: const EdgeInsets.all(25.0),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   //food name
                   Text(
@@ -44,8 +51,8 @@ class _FoodPageState extends State<FoodPage> {
                   Text(
                     "\$${widget.food.price}",
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
                     ),
                   ),
                   const SizedBox(
@@ -56,15 +63,15 @@ class _FoodPageState extends State<FoodPage> {
                     widget.food.description,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      color: Theme.of(context).colorScheme.primary,
+                      fontSize: 19,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                     ),
                   ),
                   const SizedBox(
                     height: 15,
                   ),
                   Divider(
-                    color: Theme.of(context).colorScheme.secondary,
+                    color: Theme.of(context).colorScheme.tertiary,
                   ),
                   Text(
                     "Add-ons",
@@ -79,7 +86,7 @@ class _FoodPageState extends State<FoodPage> {
                   Container(
                     decoration: BoxDecoration(
                         border: Border.all(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: Theme.of(context).colorScheme.tertiary,
                         ),
                         borderRadius: BorderRadius.circular(12)),
                     child: ListView.builder(
@@ -106,6 +113,7 @@ class _FoodPageState extends State<FoodPage> {
 
             //button=>add to cart
             CustomContainer(
+              color: Theme.of(context).colorScheme.inversePrimary,
               onTap: () {},
               text: "Add to cart",
             ),

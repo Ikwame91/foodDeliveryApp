@@ -21,6 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+
   @override
   void initState() {
     super.initState();
@@ -94,17 +95,21 @@ class _HomePageState extends State<HomePage>
                     title: MyTabBar(tabController: _tabController),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Divider(
+                          color: Theme.of(context).colorScheme.secondary,
                           indent: 25,
                           endIndent: 25,
                         ),
 
                         //current location
-                        CurrentLocation(),
+                        const CurrentLocation(),
 
                         //descriptive box
-                        DescriptionBox()
+                        const DescriptionBox(),
+
+                        const SizedBox(height: 20),
                       ],
                     ),
                   ),

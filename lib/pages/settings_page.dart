@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:food_delivery/themes/theme_provider.dart';
+import 'package:provider/provider.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -26,14 +28,24 @@ class _SettingsPageState extends State<SettingsPage> {
             padding: const EdgeInsets.all(25),
             child: Row(
               children: [
-                const Text(
+                Text(
                   "Dark Mode",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.inversePrimary,
                   ),
                 ),
-                CupertinoSwitch(value: false, onChanged: (value) {})
+                CupertinoSwitch(
+                    value: Provider.of<ThemeProvider>(
+                      context,
+                      listen: false,
+                    ).isDarkMode,
+                    onChanged: (value) => {
+                          Provider.of<ThemeProvider>(
+                            context,
+                            listen: false,
+                          ).toggleTheme()
+                        })
               ],
             ),
           )
