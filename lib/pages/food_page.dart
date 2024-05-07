@@ -5,10 +5,15 @@ import 'package:google_fonts/google_fonts.dart';
 
 class FoodPage extends StatefulWidget {
   final Food food;
-  const FoodPage({
+  final Map<Addons, bool> selectedAddons = {};
+  FoodPage({
     super.key,
     required this.food,
-  });
+  }) {
+    for (Addons addons in food.availableAddons) {
+      selectedAddons[addons] = false;
+    }
+  }
 
   @override
   State<FoodPage> createState() => _FoodPageState();
@@ -102,8 +107,12 @@ class _FoodPageState extends State<FoodPage> {
                           return CheckboxListTile(
                             title: Text(addons.name),
                             subtitle: Text("\$${addons.price.toString()}"),
-                            value: false,
-                            onChanged: (value) {},
+                            value: widget.selectedAddons[addons],
+                            onChanged: (bool? value) {
+                              setState(() {
+                                widget.selectedAddons[addons] = value!;
+                              });
+                            },
                           );
                         }),
                   )

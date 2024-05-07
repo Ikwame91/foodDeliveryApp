@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/models/cart.dart';
 import 'package:food_delivery/models/food.dart';
 
 class Restaurant with ChangeNotifier {
@@ -251,7 +252,13 @@ Getters
   /*
   Operations
   */
+
+  //user cart
+  List<CartItem> _cart = [];
   //add to cart
+  void addToCart(Food food, List<Addons> selectedAddon) {
+    //find if thers a cart with the same food and selected addons
+  }
 
   //remove from cart
 
