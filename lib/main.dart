@@ -5,7 +5,7 @@ import 'package:food_delivery/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsFlutterBinding.ensureInitialized();
   runApp(MultiProvider(
     providers: [
       // themeprovider
