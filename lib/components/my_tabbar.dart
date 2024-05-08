@@ -14,7 +14,6 @@ class MyTabBar extends StatelessWidget {
       return Tab(
         child: Text(
           category.toString().split(".").last,
-          textScaler: TextScaler.linear(0.8),
         ),
       );
     }).toList();

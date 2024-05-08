@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/cart.dart';
 import 'package:food_delivery/models/food.dart';
@@ -6,51 +7,59 @@ class Restaurant with ChangeNotifier {
   final List<Food> _menu = [
     //burgers
     Food(
-      name: "Classico CheeseBurgers",
+      name: "Classic Beef Burger",
       description:
-          "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
+          "Juicy beef patty topped with fresh lettuce, tomatoes, onions, pickles, and ketchup, served on a toasted sesame seed bun.",
       imagePath: "assets/images/burger1.jpeg",
-      price: 9.09,
+      price: 8.99,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addons(name: 'fried Wings', price: 568),
+        Addons(name: 'Fried Wings', price: 568),
+        Addons(name: 'Extra Cheese', price: 200),
+        Addons(name: 'Bacon Strips', price: 300),
       ],
     ),
     Food(
-      name: "Classico CheeseBurgers",
+      name: "Spicy Chicken Burger",
       description:
-          "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
+          "Crispy chicken fillet seasoned with spicy marinade, topped with lettuce, tomato, jalapenos, and chipotle mayo, served on a brioche bun.",
       imagePath: "assets/images/burger2.jpeg",
-      price: 9.09,
+      price: 7.99,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addons(name: 'fried Wings', price: 568),
+        Addons(name: 'Onion Rings', price: 3.00),
+        Addons(name: 'Extra Spicy Sauce', price: 1.50),
+        Addons(name: 'Avocado', price: 2.00),
       ],
     ),
     Food(
-      name: "Classico CheeseBurgers",
+      name: "Veggie Burger",
       description:
-          "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
+          "Delicious vegetarian burger made with a blend of black beans, quinoa, and spices, topped with lettuce, tomato, onion, and tangy BBQ sauce, served on a whole grain bun.",
       imagePath: "assets/images/burger3.jpeg",
-      price: 9.09,
+      price: 6.99,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addons(name: 'fried Wings', price: 568),
+        Addons(name: 'Sweet Potato Fries', price: 3.00),
+        Addons(name: 'Guacamole', price: 2.00),
+        Addons(name: 'Grilled Mushrooms', price: 1.50),
       ],
     ),
     Food(
-      name: "Classico CheeseBurgers",
+      name: "Double Bacon Cheeseburger",
       description:
-          "A Tasty cheese burger made from the remotada of a mixtuer of cow and chicken leaving its audience woith an unforgettable taste",
+          "Double beef patties topped with crispy bacon strips, melted cheddar cheese, lettuce, tomato, and smoky BBQ sauce, served on a toasted brioche bun.",
       imagePath: "assets/images/burger4.jpeg",
-      price: 9.09,
+      price: 10.99,
       category: FoodCategory.burgers,
       availableAddons: [
-        Addons(name: 'fried Wings', price: 568),
+        Addons(name: 'Onion Rings', price: 3.00),
+        Addons(name: 'Extra Bacon', price: 2.00),
+        Addons(name: 'Garlic Aioli', price: 1.50),
       ],
     ),
 
-    // Salads
+    //salads
     Food(
       name: "Caesar Salad",
       description:
@@ -61,6 +70,7 @@ class Restaurant with ChangeNotifier {
       availableAddons: [
         Addons(name: 'Grilled Chicken', price: 2.50),
         Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Avocado', price: 1.50),
       ],
     ),
     Food(
@@ -70,7 +80,11 @@ class Restaurant with ChangeNotifier {
       imagePath: "assets/images/salad2.jpeg",
       price: 7.49,
       category: FoodCategory.salads,
-      availableAddons: [],
+      availableAddons: [
+        Addons(name: 'Grilled Chicken', price: 2.50),
+        Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Avocado', price: 1.50),
+      ],
     ),
     Food(
       name: "Cobb Salad",
@@ -79,7 +93,11 @@ class Restaurant with ChangeNotifier {
       imagePath: "assets/images/salad3.jpeg",
       price: 8.99,
       category: FoodCategory.salads,
-      availableAddons: [],
+      availableAddons: [
+        Addons(name: 'Grilled Chicken', price: 2.50),
+        Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Avocado', price: 1.50),
+      ],
     ),
     Food(
       name: "Caprese Salad",
@@ -90,10 +108,12 @@ class Restaurant with ChangeNotifier {
       category: FoodCategory.salads,
       availableAddons: [
         Addons(name: 'Prosciutto', price: 2.00),
+        Addons(name: 'Extra Mozzarella', price: 1.00),
+        Addons(name: 'Olives', price: 1.50),
       ],
     ),
 
-// Sides
+    // Sides
     Food(
       name: "French Fries",
       description: "Crispy golden French fries served with ketchup.",
@@ -102,6 +122,8 @@ class Restaurant with ChangeNotifier {
       category: FoodCategory.sides,
       availableAddons: [
         Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Extra Salt', price: 0.50),
+        Addons(name: 'Garlic Mayo', price: 1.00),
       ],
     ),
 
@@ -114,6 +136,8 @@ class Restaurant with ChangeNotifier {
       category: FoodCategory.sides,
       availableAddons: [
         Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'BBQ Sauce', price: 1.00),
+        Addons(name: 'Ranch Dressing', price: 1.00),
       ],
     ),
     Food(
@@ -125,6 +149,8 @@ class Restaurant with ChangeNotifier {
       category: FoodCategory.sides,
       availableAddons: [
         Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Parmesan Cheese', price: 0.50),
+        Addons(name: 'Extra Garlic Butter', price: 0.50),
       ],
     ),
     Food(
@@ -136,57 +162,10 @@ class Restaurant with ChangeNotifier {
       category: FoodCategory.sides,
       availableAddons: [
         Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Extra Dressing', price: 0.50),
+        Addons(name: 'Red Cabbage', price: 1.00),
       ],
     ),
-
-// Desserts
-    Food(
-      name: "New York Cheesecake",
-      description:
-          "Creamy and rich New York-style cheesecake with a graham cracker crust.",
-      imagePath: "assets/images/desert3.jpeg",
-      price: 5.99,
-      category: FoodCategory.desserts,
-      availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
-      ],
-    ),
-
-    Food(
-      name: "Chocolate Brownie",
-      description:
-          "Decadent chocolate brownie served warm with a scoop of vanilla ice cream and chocolate sauce.",
-      imagePath: "assets/images/desert1.jpeg",
-      price: 4.99,
-      category: FoodCategory.desserts,
-      availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
-      ],
-    ),
-    Food(
-      name: "Red Velvet Cake",
-      description:
-          "Decadent red velvet cake with cream cheese frosting, perfect for indulging your sweet tooth.",
-      imagePath: "assets/images/desert4.jpeg",
-      price: 6.49,
-      category: FoodCategory.desserts,
-      availableAddons: [],
-    ),
-    Food(
-      name: "Apple Pie",
-      description:
-          "Homemade apple pie with tender spiced apples baked in a flaky pastry crust.",
-      imagePath: "assets/images/desert2.jpeg",
-      price: 6.99,
-      category: FoodCategory.desserts,
-      availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
-      ],
-    ),
-
     //drinks
     Food(
       name: "Classic Mojito",
@@ -196,8 +175,9 @@ class Restaurant with ChangeNotifier {
       price: 7.99,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Lemon Wedge', price: 0.50),
+        Addons(name: 'Mint Sprig', price: 0.50),
+        Addons(name: 'Simple Syrup', price: 0.50),
       ],
     ),
     Food(
@@ -208,8 +188,9 @@ class Restaurant with ChangeNotifier {
       price: 2.49,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Lemon Slice', price: 0.50),
+        Addons(name: 'Sugar Syrup', price: 0.50),
+        Addons(name: 'Mint Leaves', price: 0.50),
       ],
     ),
     Food(
@@ -220,8 +201,9 @@ class Restaurant with ChangeNotifier {
       price: 3.99,
       category: FoodCategory.drinks,
       availableAddons: [
-        Addons(name: 'Shrimp', price: 3.00),
-        Addons(name: 'Shrimp', price: 3.00),
+        Addons(name: 'Strawberry Slice', price: 0.50),
+        Addons(name: 'Lemon Zest', price: 0.50),
+        Addons(name: 'Sparkling Water', price: 0.50),
       ],
     ),
     Food(
@@ -231,9 +213,12 @@ class Restaurant with ChangeNotifier {
       imagePath: "assets/images/drink1.jpeg",
       price: 2.99,
       category: FoodCategory.drinks,
-      availableAddons: [],
+      availableAddons: [
+        Addons(name: 'Chocolate Powder', price: 0.50),
+        Addons(name: 'Cinnamon Dust', price: 0.50),
+        Addons(name: 'Vanilla Extract', price: 0.50),
+      ],
     ),
-
     //salads
 
     //sides
@@ -248,6 +233,7 @@ Getters
   
   */
   List<Food> get menu => _menu;
+  List<CartItem> get cart => _cart;
 
   /*
   Operations
@@ -258,15 +244,83 @@ Getters
   //add to cart
   void addToCart(Food food, List<Addons> selectedAddon) {
     //find if thers a cart with the same food and selected addons
+    CartItem? cartItem = _cart.firstWhereOrNull((item) {
+      //check if the food is the same
+      bool isSmeFood = item.food == food;
+
+      //check if the selected addons are the same
+      bool sameAddons =
+          const ListEquality().equals(item.selectedAddons, selectedAddon);
+
+      return isSmeFood && sameAddons;
+    });
+
+    //if cartItem is not null, increment the quantity
+    if (cartItem != null) {
+      cartItem.quantity++;
+    } else {
+      //if cartItem is null, add a new cartItem
+      _cart.add(CartItem(food: food, selectedAddons: selectedAddon));
+    }
+
+    //   CartItem? cartItem = _cart.firstWhere(
+    //       (item) =>
+    //           item.food == food &&
+    //           item.selectedAddons.length == selectedAddon.length &&
+    //           item.selectedAddons.every((addon) => selectedAddon.contains(addon)),
+    //       orElse: () => CartItem(food: food, selectedAddons: selectedAddon));
+
+    //   if (cartItem.food == food) {
+    //     cartItem.quantity++;
+    //   } else {
+    //     _cart.add(cartItem);
+    //   }
+    notifyListeners();
   }
 
   //remove from cart
+  void removeFromCart(CartItem cartItem) {
+    int cartIndex = _cart.indexOf(cartItem);
+    if (cartIndex != -1) {
+      if (_cart[cartIndex].quantity > 1) {
+        _cart[cartIndex].quantity--;
+      } else {
+        _cart.removeAt(cartIndex);
+      }
+      notifyListeners();
+    }
+  }
 
   //get total price of cart
+  double totalCartPrice() {
+    double itemTotal = 0.0;
+
+    for (CartItem cartItem in _cart) {
+      double itemTotal = cartItem.food.price;
+
+      for (Addons addon in cartItem.selectedAddons) {
+        itemTotal += addon.price;
+      }
+
+      itemTotal += itemTotal + cartItem.quantity;
+    }
+    return itemTotal;
+  }
 
   //get total number of items in cart
+  int totalCartItems() {
+    int totalItems = 0;
+    for (CartItem cartItem in _cart) {
+      totalItems += cartItem.quantity;
+    }
+    return totalItems;
+  }
 
   //clear cart
+  void clearCart() {
+    _cart.clear();
+    notifyListeners();
+  }
 
   /*
 
