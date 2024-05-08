@@ -18,12 +18,12 @@ class QuantitySelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(30),
         border: Border.all(
           color: Theme.of(context).colorScheme.primary,
         ),
       ),
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(4),
       child: Row(
         children: [
           //decrease buttom
@@ -31,7 +31,7 @@ class QuantitySelector extends StatelessWidget {
             onTap: onDecrement,
             child: Icon(
               Icons.remove,
-              size: 20,
+              size: 18,
               color: Theme.of(context).colorScheme.primary,
             ),
           ),
@@ -43,8 +43,8 @@ class QuantitySelector extends StatelessWidget {
               child: Text(
                 quantity.toString(),
                 style: TextStyle(
-                  color: Theme.of(context).colorScheme.primary,
-                  fontSize: 20,
+                  color: Colors.red,
+                  fontSize: 18,
                 ),
               ),
             ),
@@ -55,7 +55,7 @@ class QuantitySelector extends StatelessWidget {
             onTap: onIncrement,
             child: Icon(
               Icons.add,
-              size: 20,
+              size: 18,
               color: Theme.of(context).colorScheme.primary,
             ),
           ),

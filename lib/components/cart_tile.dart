@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/quantity_select.dart';
 import 'package:food_delivery/models/cart.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:provider/provider.dart';
 
-class MyCartTile extends StatelessWidget {
+class MyCartTile extends StatefulWidget {
   const MyCartTile({super.key, required this.cartItem});
   final CartItem cartItem;
+
+  @override
+  State<MyCartTile> createState() => _MyCartTileState();
+}
+
+class _MyCartTileState extends State<MyCartTile> {
+  bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Consumer<Restaurant>(
@@ -21,7 +27,7 @@ class MyCartTile extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
-                      cartItem.food.imagePath,
+                      widget.cartItem.food.imagePath,
                       height: 120,
                       width: 100,
                     ),
@@ -34,21 +40,41 @@ class MyCartTile extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(cartItem.food.name),
-                      Text("\$${cartItem.food.price}"),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            isExpanded = !isExpanded;
+                          });
+                        },
+                        child: ConstrainedBox(
+                          constraints: const BoxConstraints(
+                            maxWidth: 120,
+                          ),
+                          child: Text(
+                            widget.cartItem.food.name,
+                            overflow: isExpanded ? null : TextOverflow.ellipsis,
+                            maxLines: isExpanded ? null : 2,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Text("\$${widget.cartItem.food.price}"),
                     ],
                   ),
 
                   //decrement or increment quantity
                   QuantitySelector(
-                    quantity: cartItem.quantity,
-                    food: cartItem.food,
+                    quantity: widget.cartItem.quantity,
+                    food: widget.cartItem.food,
                     onIncrement: () {
                       restaurant.addToCart(
-                          cartItem.food, cartItem.selectedAddons);
+                          widget.cartItem.food, widget.cartItem.selectedAddons);
                     },
                     onDecrement: () {
-                      restaurant.removeFromCart(cartItem);
+                      restaurant.removeFromCart(widget.cartItem);
                     },
                   ),
                 ],
