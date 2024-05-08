@@ -39,12 +39,15 @@ class QuantitySelector extends StatelessWidget {
           //quantity count
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Center(
-              child: Text(
-                quantity.toString(),
-                style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 18,
+            child: SizedBox(
+              width: 20,
+              child: Center(
+                child: Text(
+                  quantity.toString(),
+                  style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 18,
+                  ),
                 ),
               ),
             ),

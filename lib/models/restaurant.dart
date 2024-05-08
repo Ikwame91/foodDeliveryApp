@@ -246,13 +246,13 @@ Getters
     //find if thers a cart with the same food and selected addons
     CartItem? cartItem = _cart.firstWhereOrNull((item) {
       //check if the food is the same
-      bool isSmeFood = item.food == food;
+      bool isSameFood = item.food == food;
 
       //check if the selected addons are the same
       bool sameAddons =
           const ListEquality().equals(item.selectedAddons, selectedAddon);
 
-      return isSmeFood && sameAddons;
+      return isSameFood && sameAddons;
     });
 
     //if cartItem is not null, increment the quantity
@@ -293,7 +293,7 @@ Getters
 
   //get total price of cart
   double totalCartPrice() {
-    double itemTotal = 0.0;
+    double total = 0.0;
 
     for (CartItem cartItem in _cart) {
       double itemTotal = cartItem.food.price;
@@ -302,9 +302,9 @@ Getters
         itemTotal += addon.price;
       }
 
-      itemTotal += itemTotal + cartItem.quantity;
+      total += itemTotal + cartItem.quantity;
     }
-    return itemTotal;
+    return total;
   }
 
   //get total number of items in cart
