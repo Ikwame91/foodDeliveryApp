@@ -22,17 +22,19 @@ class CustomContainer extends StatelessWidget {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
               color: color, borderRadius: BorderRadius.circular(12)),
-          child: Center(
-            child: Text(
-              text!,
-              style: GoogleFonts.lato(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                color: Colors.white,
-              ),
-            ),
-          ),
+          child: text != null
+              ? Center(
+                  child: Text(
+                    text!,
+                    style: GoogleFonts.lato(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
+                      color: Colors.white,
+                    ),
+                  ),
+                )
+              : null,
         ),
       ),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/cart_tile.dart';
+import 'package:food_delivery/components/custom_container.dart';
 import 'package:food_delivery/models/restaurant.dart';
+import 'package:food_delivery/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatefulWidget {
@@ -32,8 +34,8 @@ class _CartPageState extends State<CartPage> {
                       showDialog(
                         context: context,
                         builder: (context) => AlertDialog(
-                          title:
-                              Text("Are you sure you want to clear the cart"),
+                          title: const Text(
+                              "Are you sure you want to clear the cart"),
                           actions: [
                             TextButton(
                               onPressed: () => Navigator.pop(context),
@@ -49,26 +51,48 @@ class _CartPageState extends State<CartPage> {
                         ),
                       );
                     },
-                    icon: Icon(Icons.delete))
+                    icon: const Icon(Icons.delete))
               ],
             ),
             body: Column(
               children: [
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: userCart.length,
-                    itemBuilder: (context, index) {
-                      final cartItem = userCart[index];
-                      return MyCartTile(cartItem: cartItem);
-                    },
+                  child: Column(
+                    children: [
+                      userCart.isEmpty
+                          ? const Center(
+                              child: Text('Cart is empty',
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                            )
+                          : Expanded(
+                              child: ListView.builder(
+                                itemCount: userCart.length,
+                                itemBuilder: (context, index) {
+                                  final cartItem = userCart[index];
+                                  return MyCartTile(cartItem: cartItem);
+                                },
+                              ),
+                            ),
+                    ],
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    restaurant.clearCart();
+
+                //button to pay
+                CustomContainer(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Payment(),
+                        ));
                   },
-                  child: const Text('Clear Cart'),
+                  text: " Go to checkout",
                 ),
+                const SizedBox(
+                  height: 20,
+                )
               ],
             ));
       },

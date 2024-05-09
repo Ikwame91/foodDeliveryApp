@@ -27,7 +27,7 @@ class _MyCartTileState extends State<MyCartTile> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
@@ -61,7 +61,6 @@ class _MyCartTileState extends State<MyCartTile> {
                             maxLines: isExpanded ? null : 2,
                             style: const TextStyle(
                               fontWeight: FontWeight.bold,
-                              fontSize: 20,
                             ),
                           ),
                         ),
@@ -74,7 +73,7 @@ class _MyCartTileState extends State<MyCartTile> {
                       ),
                     ],
                   ),
-
+                  const Spacer(),
                   //decrement or increment quantity
                   QuantitySelector(
                     quantity: widget.cartItem.quantity,
@@ -104,6 +103,7 @@ class _MyCartTileState extends State<MyCartTile> {
                             label: Row(
                               children: [
                                 Text(addon.name),
+                                const SizedBox(width: 5),
                                 Text(addon.price.toString()),
                               ],
                             ),

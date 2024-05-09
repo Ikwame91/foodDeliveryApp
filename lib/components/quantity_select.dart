@@ -18,13 +18,12 @@ class QuantitySelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
-        border: Border.all(
-          color: Theme.of(context).colorScheme.primary,
-        ),
+        borderRadius: BorderRadius.circular(40),
+        color: Theme.of(context).colorScheme.background,
       ),
-      padding: const EdgeInsets.all(4),
+      padding: const EdgeInsets.all(8),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         children: [
           //decrease buttom
           GestureDetector(
@@ -38,13 +37,13 @@ class QuantitySelector extends StatelessWidget {
 
           //quantity count
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 5),
             child: SizedBox(
-              width: 20,
+              width: 30,
               child: Center(
                 child: Text(
                   quantity.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.red,
                     fontSize: 18,
                   ),
