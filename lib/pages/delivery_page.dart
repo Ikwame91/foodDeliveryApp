@@ -16,9 +16,9 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
         title: Text("Delivery in progress"),
         backgroundColor: Colors.transparent,
       ),
-      body: Column(
-        children: [MyReceipt()],
-      ),
+      body: Column(children: [
+        MyReceipt(),
+      ]),
     );
   }
 }

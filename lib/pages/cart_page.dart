@@ -58,10 +58,12 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Expanded(
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       userCart.isEmpty
                           ? const Center(
                               child: Text('Cart is empty',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold)),
