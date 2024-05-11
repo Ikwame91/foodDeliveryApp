@@ -35,6 +35,7 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
           topRight: Radius.circular(40),
         ),
       ),
+      padding: EdgeInsets.all(25),
       child: Row(
         children: [
           Container(
@@ -43,6 +44,58 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
               shape: BoxShape.circle,
             ),
             child: IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+
+          //driver details
+
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                " Nana Kwame",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+              ),
+              Text(
+                " Driver",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              )
+            ],
+          ),
+          Row(
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                    onPressed: () {}, icon: const Icon(Icons.person)),
+              ),
+
+              //call button
+              Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.background,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.call,
+                      color: Theme.of(context).colorScheme.primary,
+                    )),
+              ),
+            ],
           )
         ],
       ),
