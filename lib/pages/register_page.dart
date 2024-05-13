@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/components/custom_container.dart';
 import 'package:food_delivery/components/my_textfield.dart';
+import 'package:food_delivery/services/auth/authservice.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -15,6 +16,28 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final confirmPassswdcontroller = TextEditingController();
+
+  void signUp() async {
+    //grt authservice
+    final _authService = AuthService();
+
+    //check if passwords mathc => create useer
+    if (passwordController.text == confirmPassswdcontroller.text) {
+      try {
+        await _authService.signIn(
+            emailController.text, passwordController.text);
+      }
+      //display any errors
+      catch (e) {
+        showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(

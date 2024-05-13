@@ -30,12 +30,12 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
       height: 100,
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondary,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(40),
           topRight: Radius.circular(40),
         ),
       ),
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       child: Row(
         children: [
           Container(
@@ -71,6 +71,7 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
               )
             ],
           ),
+          const Spacer(),
           Row(
             children: [
               Container(
@@ -79,7 +80,15 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
                   shape: BoxShape.circle,
                 ),
                 child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.person)),
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.message,
+                      color: Theme.of(context).colorScheme.primary,
+                    )),
+              ),
+
+              const SizedBox(
+                width: 10,
               ),
 
               //call button
@@ -92,7 +101,7 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
                     onPressed: () {},
                     icon: Icon(
                       Icons.call,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: Colors.green,
                     )),
               ),
             ],

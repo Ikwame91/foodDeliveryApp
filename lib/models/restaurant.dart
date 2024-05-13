@@ -342,7 +342,7 @@ Getters
 
     receipt.writeln(formattedDate);
     receipt.writeln();
-    receipt.write("_______");
+    receipt.write("----------");
 
     for (final cartItem in _cart) {
       receipt.writeln(
